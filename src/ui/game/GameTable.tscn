@@ -1,0 +1,121 @@
+[gd_scene load_steps=2 format=3 uid="uid://gametable"]
+
+[ext_resource type="Script" path="res://src/ui/game/GameTable.gd" id="1"]
+
+[node name="GameTable" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+color = Color(0.08, 0.35, 0.12, 1)
+
+[node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = -12.0
+theme_override_constants/separation = 10
+
+[node name="TopArea" type="HBoxContainer" parent="Layout"]
+[node name="StageLabel" type="Label" parent="Layout/TopArea"]
+size_flags_horizontal = 3
+text = "---"
+theme_override_font_sizes/font_size = 18
+
+[node name="PotLabel" type="Label" parent="Layout/TopArea"]
+size_flags_horizontal = 3
+text = "Банк: 0"
+horizontal_alignment = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="OpponentArea" type="VBoxContainer" parent="Layout"]
+theme_override_constants/separation = 4
+[node name="NameLabel" type="Label" parent="Layout/OpponentArea"]
+text = "Оппонент"
+theme_override_font_sizes/font_size = 16
+[node name="ChipsLabel" type="Label" parent="Layout/OpponentArea"]
+text = "0 фишек"
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+[node name="BetLabel" type="Label" parent="Layout/OpponentArea"]
+text = "Ставка: 0"
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+[node name="Cards" type="HBoxContainer" parent="Layout/OpponentArea"]
+theme_override_constants/separation = 6
+
+[node name="Spacer" type="Control" parent="Layout"]
+size_flags_vertical = 3
+
+[node name="CommunityCards" type="HBoxContainer" parent="Layout"]
+alignment = 1
+theme_override_constants/separation = 8
+
+[node name="Spacer2" type="Control" parent="Layout"]
+size_flags_vertical = 3
+
+[node name="MyArea" type="VBoxContainer" parent="Layout"]
+theme_override_constants/separation = 4
+[node name="Cards" type="HBoxContainer" parent="Layout/MyArea"]
+theme_override_constants/separation = 6
+[node name="NameLabel" type="Label" parent="Layout/MyArea"]
+text = "Ты"
+theme_override_font_sizes/font_size = 16
+[node name="ChipsLabel" type="Label" parent="Layout/MyArea"]
+text = "0 фишек"
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+[node name="BetLabel" type="Label" parent="Layout/MyArea"]
+text = "Ставка: 0"
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+
+[node name="ActionPanel" type="HBoxContainer" parent="Layout"]
+visible = false
+alignment = 1
+theme_override_constants/separation = 8
+[node name="FoldBtn" type="Button" parent="Layout/ActionPanel"]
+text = "Фолд"
+[node name="CheckBtn" type="Button" parent="Layout/ActionPanel"]
+text = "Чек"
+[node name="CallBtn" type="Button" parent="Layout/ActionPanel"]
+text = "Колл"
+[node name="RaiseBtn" type="Button" parent="Layout/ActionPanel"]
+text = "Рейз"
+
+[node name="RaisePanel" type="HBoxContainer" parent="Layout"]
+visible = false
+theme_override_constants/separation = 8
+[node name="RaiseSlider" type="HSlider" parent="Layout/RaisePanel"]
+size_flags_horizontal = 3
+min_value = 20.0
+max_value = 1000.0
+value = 20.0
+[node name="AmountLabel" type="Label" parent="Layout/RaisePanel"]
+text = "20"
+custom_minimum_size = Vector2(50, 0)
+[node name="ConfirmBtn" type="Button" parent="Layout/RaisePanel"]
+text = "Поставить"
+
+[node name="ResultPopup" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -80.0
+offset_right = 160.0
+offset_bottom = 80.0
+visible = false
+[node name="VBox" type="VBoxContainer" parent="ResultPopup"]
+theme_override_constants/separation = 12
+[node name="Label" type="Label" parent="ResultPopup/VBox"]
+text = ""
+horizontal_alignment = 1
+autowrap_mode = 3
+[node name="NextRoundBtn" type="Button" parent="ResultPopup/VBox"]
+text = "Следующий раунд"

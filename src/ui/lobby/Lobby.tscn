@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://lobby"]
+
+[ext_resource type="Script" path="res://src/ui/lobby/Lobby.gd" id="1"]
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+color = Color(0.08, 0.35, 0.12, 1)
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -200.0
+offset_right = 150.0
+offset_bottom = 200.0
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="VBox"]
+text = "Лобби"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 28
+
+[node name="RoomCodeLabel" type="Label" parent="VBox"]
+text = "Код комнаты: ----"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 22
+
+[node name="HintLabel" type="Label" parent="VBox"]
+text = "Отправь код другу"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="PlayersList" type="VBoxContainer" parent="VBox"]
+theme_override_constants/separation = 8
+
+[node name="StatusLabel" type="Label" parent="VBox"]
+text = "Ждём игроков..."
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(1, 0.9, 0.3, 1)
+
+[node name="StartBtn" type="Button" parent="VBox"]
+text = "Начать игру"
+visible = false
